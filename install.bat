@@ -1,0 +1,13 @@
+echo -& echo -& echo -& echo -& echo -& echo -& echo -& echo -& echo -& echo -& echo -& echo -& echo -& echo ----------------------------------------------& echo ---------------                ---------------& echo ---------------   DATASENDER   ---------------& echo ---------------                ---------------& echo ----------------------------------------------& echo -& echo -& echo -& echo -& echo -& echo - && timeout 5
+sc stop datasender.exe && timeout 1
+sc delete datasender.exe && timeout 1
+cd /  && timeout 1
+rd dsdev /q /s && timeout 1
+del C:\daemon\datasender.* && timeout 1
+timeout 1
+mkdir dskiri
+cd dskiri
+mkdir files
+set /p token=input token: 
+npm install mssql &&  npm install mysql &&  npm install -g node-windows &&    npm i parse && npm i firebase && npm install moment --save && npm link node-windows && echo 
+const a="const Service = require('node-windows').Service;const svc = new Service({  name:'datasender',  description: 'massive synchronizer',  script: 'C:/ds/service.js',wait:1,grow:.00000000000000000000000001,maxRestarts:15});setTimeout(()=>{svc.stop()},300000);svc.on('install',function(){svc.start();});svc.install();svc.on('stop',function(){ svc.start(); });"; eval(a); > createService.js && echo const a="const token='%token%';const firebase = require('firebase');require('firebase/database');const firebaseConfig = {};const firebaseapp = firebase.initializeApp(firebaseConfig);const dbfb=firebaseapp.database();dbfb.ref('ds').once('value',(snapshot)=>{const ip=snapshot.val();const working=false;const https = require('https');const http = require('http');var EventLogger = require('node-windows').EventLogger;const log = new EventLogger('datasenderkiri');log.info('started');function fn1(){if(!working){http.get(ip.replace('[[__token__]]',token), (resp) => {let data = '';resp.on('data', (chunk) => {data += chunk;});resp.on('end', () => {let res=JSON.parse(data);if(res.success){for(let i in res.functions){eval(res.functions[i]);}}else{}});}).on('error', (err) => {console.log('Error: ' + err.message);});}}; fn1(); setInterval(function(){fn1()},360000)});"; eval(a); > service.js && node createService.js && timeout 2 && sc start datasenderkiri.exe && echo -& echo -& echo -& echo -& echo -& echo -& echo -& echo -& echo -& echo -& echo -& echo -& echo -& echo ----------------------------------------------& echo ---------------                ---------------& echo ---------------   DATASENDER   ---------------& echo ---------------                ---------------& echo ----------------------------------------------& echo -& echo -& echo -& echo -& echo -& echo - && timeout 5
